@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABxMotions — Video editing studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Archivo+Black&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#101012;
@@ -53,8 +53,23 @@
     display:flex;align-items:center;justify-content:space-between;
     padding:18px 24px;
   }
-  .logo{font-size:20px;font-weight:700;letter-spacing:-0.02em;}
-  .logo span{color:var(--accent);}
+  .logo{display:flex;align-items:center;}
+  .ab-mark{flex:none;}
+  .logo-x{font-family:'Inter',sans-serif;font-weight:700;font-size:24px;color:var(--accent);flex:none;margin-right:0.18em;}
+  .motions-word{
+    font-family:'Inter',sans-serif;font-weight:700;font-size:24px;
+    letter-spacing:0.18em;color:var(--text);
+    display:inline-flex;align-items:center;
+  }
+  .o-play{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:23px;height:23px;border-radius:50%;background:var(--accent);
+    margin:0 1px;position:relative;flex:none;
+  }
+  .o-play::after{
+    content:'';border-left:7px solid #101012;border-top:5px solid transparent;
+    border-bottom:5px solid transparent;margin-left:2px;
+  }
   nav ul{display:flex;list-style:none;gap:8px;}
   nav button{
     background:none;border:none;color:var(--text-dim);
@@ -246,7 +261,11 @@
 
 <header>
   <div class="nav-wrap">
-    <div class="logo">AB<span>x</span>Motions</div>
+    <div class="logo">
+      <span class="motions-word">AB</span>
+      <span class="logo-x">x</span>
+      <span class="motions-word">M<span class="o-play"></span>TIONS</span>
+    </div>
     <nav>
       <ul>
         <li><button class="nav-btn active" data-page="home">Home</button></li>
