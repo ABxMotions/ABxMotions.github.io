@@ -109,7 +109,7 @@
   /* Services as timeline clips */
   .clips{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:20px;}
   .clip{
-    display:grid;grid-template-columns:120px 1fr 90px;gap:20px;align-items:center;
+    display:grid;grid-template-columns:60px 1fr;gap:20px;align-items:center;
     padding:22px 0;border-bottom:1px solid var(--line);
   }
   .clip .num{font-family:'IBM Plex Mono',monospace;color:var(--text-dim);font-size:13px;}
@@ -121,6 +121,12 @@
   }
 
   h2.section-title{font-size:clamp(26px,4vw,36px);font-weight:700;letter-spacing:-0.02em;max-width:600px;}
+
+  .why-list{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:16px;max-width:640px;}
+  .why-list li{
+    font-size:15px;color:var(--text-dim);display:flex;align-items:flex-start;gap:12px;
+  }
+  .why-list .check{color:var(--accent-2);font-weight:600;flex:none;}
   .section-sub{color:var(--text-dim);margin-top:12px;max-width:520px;font-size:15px;}
 
   /* Portfolio grid */
@@ -236,44 +242,47 @@
 <!-- HOME -->
 <div class="page active" id="page-home">
   <section class="hero">
-    <div class="tag">Now booking · July 2026</div>
+    <div class="tag">Open for bookings</div>
     <h1>Every frame,<br><em>deliberate.</em></h1>
-    <p>ABxMotions is a video editing studio for creators and brands who care about the cut. Reels, YouTube, brand films, and everything in between — shaped frame by frame.</p>
+    <p>ABxMotions transforms your raw footage into cinematic videos that captivate your audience. Whether it's Reels, YouTube, weddings, travel films, or brand content, every project is crafted with precision and creativity.</p>
     <div class="cta-row">
       <button class="btn btn-primary" onclick="goTo('portfolio')">View portfolio</button>
       <button class="btn btn-ghost" onclick="goTo('contact')">Start a project</button>
     </div>
-    <div class="hero-ruler">
-      <div class="ruler" id="ruler"></div>
-      <div class="timecode"><span>00:00:00:00</span><span>00:00:24:00</span></div>
-    </div>
   </section>
 
   <section>
-    <h2 class="section-title">What gets edited</h2>
+    <h2 class="section-title">Our Editing Services</h2>
     <p class="section-sub">Four core lanes, each cut to fit where it's going.</p>
     <div class="clips">
       <div class="clip">
         <div class="num mono">01</div>
-        <div><h3>Reels &amp; social cuts</h3><p>Fast, punchy edits built for retention on Instagram, TikTok, and Shorts.</p></div>
-        <div class="dur">00:45</div>
+        <div><h3>Reels &amp; social cuts</h3><p>High-retention trending edits designed for Instagram, TikTok, Shorts, and other vertical platforms that keep viewers engaged.</p></div>
       </div>
       <div class="clip">
         <div class="num mono">02</div>
-        <div><h3>YouTube &amp; long-form</h3><p>Narrative pacing, clean B-roll work, and thumbnails that earn the click.</p></div>
-        <div class="dur">12:30</div>
+        <div><h3>YouTube &amp; long-form</h3><p>Professional long-form editing with cinematic pacing, engaging storytelling, polished sound design, and seamless transitions.</p></div>
       </div>
       <div class="clip">
         <div class="num mono">03</div>
-        <div><h3>Corporate &amp; brand films</h3><p>Polished, on-message edits for launches, training, and internal comms.</p></div>
-        <div class="dur">03:15</div>
+        <div><h3>Corporate &amp; brand films</h3><p>Clean, professional edits for product launches, company profiles, training videos, events, and promotional campaigns.</p></div>
       </div>
       <div class="clip">
         <div class="num mono">04</div>
-        <div><h3>Motion graphics &amp; titles</h3><p>Custom lower-thirds, kinetic type, and transitions that carry the brand.</p></div>
-        <div class="dur">00:20</div>
+        <div><h3>Motion graphics &amp; titles</h3><p>Dynamic motion graphics, animated titles, lower thirds, logo reveals, and smooth transitions that elevate your brand.</p></div>
       </div>
     </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Why Choose ABxMotions?</h2>
+    <ul class="why-list">
+      <li><span class="check">✔</span> Personalized editing tailored to your vision.</li>
+      <li><span class="check">✔</span> High-quality visuals with attention to every detail.</li>
+      <li><span class="check">✔</span> Affordable pricing without compromising creativity.</li>
+      <li><span class="check">✔</span> Fast turnaround and clear communication.</li>
+      <li><span class="check">✔</span> Dedicated to delivering videos that connect with your audience.</li>
+    </ul>
   </section>
 </div>
 
@@ -313,11 +322,11 @@
       <h3 style="font-size:16px;font-weight:500;color:var(--text-dim);">The process</h3>
       <div class="process-line"></div>
       <div class="process-steps">
-        <div class="pstep"><div class="tc">00:00</div><h3>Import</h3><p>Footage, briefs, and references organized into one bin.</p></div>
-        <div class="pstep"><div class="tc">00:06</div><h3>Cut</h3><p>Structure and pacing locked in a rough assembly.</p></div>
-        <div class="pstep"><div class="tc">00:12</div><h3>Color</h3><p>Grade applied for a consistent, intentional look.</p></div>
-        <div class="pstep"><div class="tc">00:18</div><h3>Sound</h3><p>Mix, music, and SFX layered against the cut.</p></div>
-        <div class="pstep"><div class="tc">00:24</div><h3>Export</h3><p>Delivered in every format the platform needs.</p></div>
+        <div class="pstep"><div class="tc">01</div><h3>Import</h3><p>Footage, briefs, and references organized into one bin.</p></div>
+        <div class="pstep"><div class="tc">02</div><h3>Sound</h3><p>Mix, music, and SFX layered against the cut.</p></div>
+        <div class="pstep"><div class="tc">03</div><h3>Cut</h3><p>Structure and pacing locked in a rough assembly.</p></div>
+        <div class="pstep"><div class="tc">04</div><h3>Color</h3><p>Grade applied for a consistent, intentional look.</p></div>
+        <div class="pstep"><div class="tc">05</div><h3>Export</h3><p>Delivered in every format the platform needs.</p></div>
       </div>
     </div>
   </section>
@@ -372,13 +381,6 @@
 </footer>
 
 <script>
-  // build ruler ticks
-  const ruler = document.getElementById('ruler');
-  for(let i=0;i<80;i++){
-    const s = document.createElement('span');
-    ruler.appendChild(s);
-  }
-
   // nav switching
   const buttons = document.querySelectorAll('.nav-btn');
   function goTo(page){
@@ -406,7 +408,6 @@
       <div class="frame"><div class="play-mark"></div></div>
       <div class="card-meta">
         <h3>${p.title}</h3>
-        <span class="dur-badge mono">${p.dur}</span>
       </div>
       <div class="cat mono">${p.cat.toUpperCase()}</div>
       <p>${p.desc}</p>
