@@ -221,6 +221,25 @@
     html{scroll-behavior:auto;}
     .page{animation:none;}
   }
+
+  /* Hero entrance animation */
+  @keyframes rise{
+    from{opacity:0;transform:translateY(18px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .hero .tag{animation:rise .6s ease both;}
+  .hero h1{animation:rise .6s ease .08s both;}
+  .hero p{animation:rise .6s ease .16s both;}
+  .hero .cta-row{animation:rise .6s ease .24s both;}
+
+  /* Scroll-reveal for sections */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .hero .tag, .hero h1, .hero p, .hero .cta-row{animation:none;}
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
 </style>
 </head>
 <body>
@@ -254,7 +273,7 @@
   <section>
     <h2 class="section-title">Our Editing Services</h2>
     <p class="section-sub">Four core lanes, each cut to fit where it's going.</p>
-    <div class="clips">
+    <div class="clips reveal">
       <div class="clip">
         <div class="num mono">01</div>
         <div><h3>Reels &amp; social cuts</h3><p>High-retention trending edits designed for Instagram, TikTok, Shorts, and other vertical platforms that keep viewers engaged.</p></div>
@@ -276,7 +295,7 @@
 
   <section>
     <h2 class="section-title">Why Choose ABxMotions?</h2>
-    <ul class="why-list">
+    <ul class="why-list reveal">
       <li><span class="check">✔</span> Personalized editing tailored to your vision.</li>
       <li><span class="check">✔</span> High-quality visuals with attention to every detail.</li>
       <li><span class="check">✔</span> Affordable pricing without compromising creativity.</li>
@@ -292,7 +311,7 @@
     <div class="tag">Selected work</div>
     <h2 class="section-title">Portfolio</h2>
     <p class="section-sub">A sample of recent edits across formats. Full reels available on request.</p>
-    <div class="grid" id="portfolio-grid"></div>
+    <div class="grid reveal" id="portfolio-grid"></div>
   </section>
 </div>
 
@@ -301,7 +320,7 @@
   <section>
     <div class="tag">The studio</div>
     <h2 class="section-title">About ABxMotions</h2>
-    <div class="bio">
+    <div class="bio reveal">
       <div>
         <p>ABxMotions is a video editing studio built around one idea: the edit is where a story actually gets told. Founded to work closely with creators and small brands, the studio handles everything from raw footage to final export.</p>
         <p>Every project starts with a conversation about what the footage needs to do — grow a channel, launch a product, or just tell a story well — and the edit is built around that goal, not a template.</p>
@@ -318,7 +337,7 @@
       </div>
     </div>
 
-    <div class="process">
+    <div class="process reveal">
       <h3 style="font-size:16px;font-weight:500;color:var(--text-dim);">The process</h3>
       <div class="process-line"></div>
       <div class="process-steps">
@@ -339,7 +358,7 @@
     <h2 class="section-title">Start a project</h2>
     <p class="section-sub">Tell me about the footage and where it's going. I'll reply within a day.</p>
 
-    <div class="export-panel">
+    <div class="export-panel reveal">
       <div class="titlebar"><span>new_project.brief</span><span>ABxMotions</span></div>
       <form id="contact-form" action="https://formspree.io/f/maqrbypy" method="POST" onsubmit="handleSubmit(event)">
         <div class="field">
@@ -359,6 +378,10 @@
             <option>Motion graphics / titles</option>
             <option>Something else</option>
           </select>
+        </div>
+        <div class="field">
+          <label for="drive-link">Footage link (Drive / WeTransfer / Dropbox)</label>
+          <input id="drive-link" name="footage_link" type="url" placeholder="https://drive.google.com/...">
         </div>
         <div class="field">
           <label for="message">Message</label>
@@ -381,6 +404,20 @@
 </footer>
 
 <script>
+  // scroll-reveal animation
+  const revealObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  function observeReveals(scope){
+    scope.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+  }
+  observeReveals(document);
+
   // nav switching
   const buttons = document.querySelectorAll('.nav-btn');
   function goTo(page){
