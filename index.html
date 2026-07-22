@@ -458,7 +458,7 @@
   // portfolio data
   const projects = [
     {title:"Automotive Reels", cat:"Reels", desc:"Transforming raw automotive footage into visually stunning cinematic reels, delivered in 24 hours.", media:"ritz-automotive-reel.gif"},
-    {title:"Weekly vlog edit", cat:"YouTube", desc:"Ongoing weekly edit for a lifestyle YouTube channel."},
+    {title:"Travel / Vlog edits", cat:"Posts", desc:"Turning your journeys into cinematic stories.", media:"travel-vlog-edits.gif", link:"https://www.instagram.com/reel/DadRg9qStwx/?igsh=bW5xYXZ2bDFmazEy"},
     {title:"Onboarding training film", cat:"Corporate", desc:"Internal training video for a distribution company."},
     {title:"Brand intro titles", cat:"Motion graphics", desc:"Kinetic type intro package for a channel rebrand."},
     {title:"Wedding highlight reel", cat:"Reels", desc:"Same-day highlight edit from a full-day shoot."},
@@ -468,6 +468,10 @@
   projects.forEach(p=>{
     const card = document.createElement('div');
     card.className = 'card';
+    if(p.link){
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', ()=>window.open(p.link, '_blank', 'noopener'));
+    }
     const visual = p.media
       ? `<div class="frame"><img src="${p.media}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;"></div>`
       : `<div class="frame"><div class="play-mark"></div></div>`;
