@@ -179,6 +179,12 @@
     content:'';border-left:9px solid var(--text-dim);border-top:6px solid transparent;
     border-bottom:6px solid transparent;margin-left:3px;
   }
+  .play-mark-overlay{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    z-index:2;background:rgba(16,16,18,0.55);border-color:var(--text);
+  }
+  .play-mark-overlay::after{border-left-color:var(--text);}
+  .card .frame{position:relative;}
   .card-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;}
   .card h3{font-size:16px;font-weight:500;}
   .card .cat{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);}
@@ -459,7 +465,7 @@
   const projects = [
     {title:"Automotive Reels", cat:"Reels", desc:"Transforming raw automotive footage into visually stunning cinematic reels, delivered in 24 hours.", media:"ritz-automotive-reel.gif", link:"https://drive.google.com/file/d/1faAHC1Mk-qDeVT54JdNx0xyfZjbXa0-t/view?usp=drive_link"},
     {title:"Travel / Vlog edits", cat:"Posts", desc:"Turning your journeys into cinematic stories.", media:"travel-vlog-edits.gif", link:"https://www.instagram.com/reel/DadRg9qStwx/?igsh=bW5xYXZ2bDFmazEy"},
-    {title:"Onboarding training film", cat:"Corporate", desc:"Internal training video for a distribution company."},
+    {title:"Business Promotions", cat:"ADs", desc:"High-converting promotional videos crafted to help businesses attract customers and grow their brand.", media:"business-promotions.gif", link:"https://drive.google.com/file/d/1XpDRLQdhtQtYDFieM8XztL_dTihPbwuN/view?usp=sharing"},
     {title:"Brand intro titles", cat:"Motion graphics", desc:"Kinetic type intro package for a channel rebrand."},
     {title:"Wedding highlight reel", cat:"Reels", desc:"Same-day highlight edit from a full-day shoot."},
     {title:"Product explainer", cat:"Corporate", desc:"Feature walkthrough edit for a SaaS product page."},
@@ -473,7 +479,7 @@
       card.addEventListener('click', ()=>window.open(p.link, '_blank', 'noopener'));
     }
     const visual = p.media
-      ? `<div class="frame"><img src="${p.media}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;"></div>`
+      ? `<div class="frame"><img src="${p.media}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;"><div class="play-mark play-mark-overlay"></div></div>`
       : `<div class="frame"><div class="play-mark"></div></div>`;
     card.innerHTML = `
       ${visual}
