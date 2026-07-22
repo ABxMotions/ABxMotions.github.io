@@ -95,7 +95,15 @@
   .tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent-2);}
 
   /* Hero */
-  .hero{padding-top:60px;padding-bottom:60px;}
+  .hero{
+    padding-top:60px;padding-bottom:60px;
+    background:
+      linear-gradient(180deg, rgba(16,16,18,0.55) 0%, rgba(16,16,18,0.85) 70%, var(--bg) 100%),
+      url('hero-bg.png');
+    background-size:cover;
+    background-position:center;
+    margin-top:-1px;
+  }
   .hero h1{
     font-size:clamp(38px,6vw,68px);
     font-weight:700;letter-spacing:-0.03em;line-height:1.05;
