@@ -285,7 +285,7 @@
     <p>ABxMotions transforms your raw footage into cinematic videos that captivate your audience. Whether it's Reels, YouTube, weddings, travel films, or brand content, every project is crafted with precision and creativity.</p>
     <div class="cta-row">
       <button class="btn btn-primary" onclick="goTo('portfolio')">View portfolio</button>
-      <button class="btn btn-ghost" onclick="goTo('contact')">Start a project</button>
+      <button class="btn btn-ghost" onclick="goTo('contact')">Get a Quote</button>
     </div>
   </section>
 
@@ -374,11 +374,11 @@
 <div class="page" id="page-contact">
   <section>
     <div class="tag">Get in touch</div>
-    <h2 class="section-title">Start a project</h2>
+    <h2 class="section-title">Get a Quote</h2>
     <p class="section-sub">Tell me about the footage and where it's going. I'll reply within a day.</p>
 
     <div class="export-panel reveal">
-      <div class="titlebar"><span>new_project.brief</span><span>ABxMotions</span></div>
+      <div class="titlebar"><span>PROJECT REQUEST</span><span>ABxMotions</span></div>
       <form id="contact-form" action="https://formspree.io/f/maqrbypy" method="POST" onsubmit="handleSubmit(event)">
         <div class="field">
           <label for="name">Name</label>
@@ -406,7 +406,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" required placeholder="Footage length, deadline, style references..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary export-btn">Send brief</button>
+        <button type="submit" class="btn btn-primary export-btn">Send Request</button>
       </form>
     </div>
     <div class="contact-direct">
@@ -449,19 +449,22 @@
 
   // portfolio data
   const projects = [
-    {title:"Rooftop launch reel", cat:"Reels", dur:"00:38", desc:"Product launch cut for Instagram, delivered in 24 hours."},
-    {title:"Weekly vlog edit", cat:"YouTube", dur:"11:42", desc:"Ongoing weekly edit for a lifestyle YouTube channel."},
-    {title:"Onboarding training film", cat:"Corporate", dur:"04:10", desc:"Internal training video for a distribution company."},
-    {title:"Brand intro titles", cat:"Motion graphics", dur:"00:15", desc:"Kinetic type intro package for a channel rebrand."},
-    {title:"Wedding highlight reel", cat:"Reels", dur:"02:20", desc:"Same-day highlight edit from a full-day shoot."},
-    {title:"Product explainer", cat:"Corporate", dur:"01:45", desc:"Feature walkthrough edit for a SaaS product page."},
+    {title:"Automotive Reels", cat:"Reels", desc:"Transforming raw automotive footage into visually stunning cinematic reels, delivered in 24 hours.", media:"ritz-automotive-reel.gif"},
+    {title:"Weekly vlog edit", cat:"YouTube", desc:"Ongoing weekly edit for a lifestyle YouTube channel."},
+    {title:"Onboarding training film", cat:"Corporate", desc:"Internal training video for a distribution company."},
+    {title:"Brand intro titles", cat:"Motion graphics", desc:"Kinetic type intro package for a channel rebrand."},
+    {title:"Wedding highlight reel", cat:"Reels", desc:"Same-day highlight edit from a full-day shoot."},
+    {title:"Product explainer", cat:"Corporate", desc:"Feature walkthrough edit for a SaaS product page."},
   ];
   const grid = document.getElementById('portfolio-grid');
   projects.forEach(p=>{
     const card = document.createElement('div');
     card.className = 'card';
+    const visual = p.media
+      ? `<div class="frame"><img src="${p.media}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;"></div>`
+      : `<div class="frame"><div class="play-mark"></div></div>`;
     card.innerHTML = `
-      <div class="frame"><div class="play-mark"></div></div>
+      ${visual}
       <div class="card-meta">
         <h3>${p.title}</h3>
       </div>
