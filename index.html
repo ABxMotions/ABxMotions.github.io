@@ -20,7 +20,13 @@
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--bg);
+    background:
+      linear-gradient(180deg, rgba(16,16,18,0.75) 0%, rgba(16,16,18,0.9) 100%),
+      url('hero-bg.png');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
     color:var(--text);
     font-family:'Inter',sans-serif;
     line-height:1.6;
@@ -97,12 +103,6 @@
   /* Hero */
   .hero{
     padding-top:60px;padding-bottom:60px;
-    background:
-      linear-gradient(180deg, rgba(16,16,18,0.55) 0%, rgba(16,16,18,0.85) 70%, var(--bg) 100%),
-      url('hero-bg.png');
-    background-size:cover;
-    background-position:center;
-    margin-top:-1px;
   }
   .hero h1{
     font-size:clamp(38px,6vw,68px);
